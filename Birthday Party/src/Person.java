@@ -37,10 +37,14 @@ public class Person {
 
     public String selectFormat(String format){
         setPrefix();
-        if(format.equals("firstLast"))
-            return getFirstNameFirst();
-        else
-            return getFirstNameLast();
+        switch (format){
+            case "firstLast" :
+                return getFirstNameFirst();
+            case "lastFirst" :
+                return getFirstNameLast();
+            default:
+                return getFirstNameFirst();
+        }
     }
 
 }
