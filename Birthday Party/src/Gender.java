@@ -1,5 +1,13 @@
 
 public enum Gender {
-    MALE,
-    FEMALE
+    Male,
+    Female;
+
+    public String setPrefix() {
+        if (this.name().equals("Male"))
+            return "Mr ";
+        return "Ms ";
+    }
 }
+
+

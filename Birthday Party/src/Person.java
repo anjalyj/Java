@@ -4,47 +4,35 @@ public class Person {
     final Name name;
     final Address address;
 
-    public Person(Name name, int age, Address address) {
+    public Person(Name name, Gender gender, int age, Address address) {
         this.name = name;
+        this.gender = gender;
         this.age = age;
         this.address = address;
     }
 
-    public void setGender(Gender gender) {
-        this.gender = gender;
+    public String getFirstName() {
+        return name.firstName;
     }
 
-    public Gender getGender() {
-        return gender;
+    public String getLastName() {
+        return name.secondName;
     }
 
-    public void setPrefix(){
-        if(getGender().toString().equals("MALE"))
-            name.prefix = "Mr";
-        else
-            name.prefix = "Ms";
+    public String getCity() {
+        return address.city;
     }
 
-    public String getFirstNameFirst(){
-        String separator = " ";
-        return name.getFirstLast(separator);
+    public String getState() {
+        return address.state;
     }
 
-    public String getFirstNameLast(){
-        String separator = ",";
-        return name.getLastFirst(separator);
+    public String getCounty() {
+        return address.country;
     }
 
-    public String selectFormat(String format){
-        setPrefix();
-        switch (format){
-            case "firstLast" :
-                return getFirstNameFirst();
-            case "lastFirst" :
-                return getFirstNameLast();
-            default:
-                return getFirstNameFirst();
-        }
+    public String getPrefix() {
+        return gender.setPrefix();
     }
 
 }
