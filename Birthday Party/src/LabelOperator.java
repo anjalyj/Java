@@ -15,10 +15,10 @@ public class LabelOperator {
     }
 
     public String getFirstNameFirstWithCountry() {
-        return getFirstNameFirst() + ", " + person.getCounty();
+        return getFirstNameFirst() + ", " + person.getCountry();
     }
 
     public String getFirstNameLastWithCountry() {
-        return getFirstNameLast() + ", " + person.getCounty();
+        return getFirstNameLast() + ", " + person.getCountry();
     }
 }

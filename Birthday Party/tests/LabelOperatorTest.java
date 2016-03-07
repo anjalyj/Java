@@ -46,6 +46,7 @@ public class LabelOperatorTest {
         String actual = op.getFirstNameLast();
         assertEquals(expected, actual);
     }
+
     @Test
     public void gives_the_name_in_the_format_first_name_first_with_country_for_male() throws Exception {
         Name name = new Name("John", "Doe");

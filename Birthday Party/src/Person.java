@@ -27,7 +27,7 @@ public class Person {
         return address.state;
     }
 
-    public String getCounty() {
+    public String getCountry() {
         return address.country;
     }
 
@@ -35,4 +35,7 @@ public class Person {
         return gender.setPrefix();
     }
 
+    public int getAge() {
+        return this.age;
+    }
 }
