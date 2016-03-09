@@ -13,23 +13,27 @@ b. Mr/Ms Last, First
 
 -------------------------------------------------------------
 
-./printLabel_firstLast.sh [records.txt]
-./printLabel_lastFirst.sh [records.txt]
+$ java PrintLabel -firstLast csvFiles/record.csv
+Mr John Doe
+Ms Melody Dooley
 
-$ cat records.txt
-Mitesh, Jha, Male, 19, Gurgaon, Delhi, India
-Vathsala, Mallikarjun, Female, 20, Bangalore, Karnataka, India
+$ java PrintLabel -lastFirst csvFiles/record.csv
+Mr Doe, John
+Ms Dooley, Melody
 
-$ java LabelPrinter --firstLast records.txt
-Mr Mitesh Jha
-Ms Vathsala Mallikarjun
+$ java PrintLabel -firstLastWithCountry csvFiles/record.csv
+Mr John Doe, Macedonia
+Ms Melody Dooley, Macedonia
 
-java LabelPrinter -f records.txt
+$ java PrintLabel -lastFirstWithCountry csvFiles/record.csv
+Mr Doe, John, Macedonia
+Ms Dooley, Melody, Macedonia
 
-recognising Guest as an entity :
-firstName,lastName,gender,age,city,state,country
 
-Reading guest records from the file
-getting guest labels
-------------------------------------------------
-Task list :
+$ java PrintLabel -firstLastWithCountry csvFiles/record.csv Bangladesh
+Mr Rodolfo Balistreri, Bangladesh
+Ms Juana Champlin, Bangladesh
+
+$ java PrintLabel -lastFirstWithCountry csvFiles/record.csv Bangladesh
+Mr Balistreri, Rodolfo, Bangladesh
+Ms Champlin, Juana, Bangladesh
