@@ -30,14 +30,14 @@ public class LabelOperator {
         return person.getCountry().equals(country) ? getFirstNameLastWithCountry() : "";
     }
 
-    public String getFitstNameFistIfLegal(String country) {
-        return (person.getAge() >=20 && person.getCountry().equals(country))
+    public String getFirsttNameFirstIfLegal(int age,String country) {
+        return (person.getAge() >=age && person.getCountry().equals(country))
                 ?  getFirstNameFirstWithSpecificCountry(country) + ", " + person.getAge()
                 : "";
     }
 
-    public String getFitstNameLastIfLegal(String country) {
-        return (person.getAge() >=20 && person.getCountry().equals(country))
+    public String getFirstNameLastIfLegal(int age,String country) {
+        return (person.getAge() >=age && person.getCountry().equals(country))
                 ?  getFirstNameLastWithSpecificCountry(country) + ", " + person.getAge()
                 : "";
     }

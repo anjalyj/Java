@@ -131,7 +131,7 @@ public class LabelOperatorTest {
         Person person = new Person(name, Gender.Female, 25, address);
         LabelOperator op = new LabelOperator(person);
         String expected = "Ms Melody Dooley, Macedonia, 25";
-        String actual = op.getFitstNameFistIfLegal("Macedonia");
+        String actual = op.getFirsttNameFirstIfLegal(20,"Macedonia");
         assertEquals(expected,actual);
     }
 
@@ -142,7 +142,7 @@ public class LabelOperatorTest {
         Person person = new Person(name, Gender.Female, 25, address);
         LabelOperator op = new LabelOperator(person);
         String expected = "Ms Dooley, Melody, Macedonia, 25";
-        String actual = op.getFitstNameLastIfLegal("Macedonia");
+        String actual = op.getFirstNameLastIfLegal(20,"Macedonia");
         assertEquals(expected,actual);
     }
     @Test
@@ -152,7 +152,7 @@ public class LabelOperatorTest {
         Person person = new Person(name, Gender.Female, 19, address);
         LabelOperator op = new LabelOperator(person);
         String expected = "";
-        String actual = op.getFitstNameLastIfLegal("Bangladesh");
+        String actual = op.getFirstNameLastIfLegal(20,"Bangladesh");
         assertEquals(expected,actual);
     }
 }

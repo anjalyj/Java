@@ -1,12 +1,10 @@
 public class PrintLabel {
     public static void main(String[] args) throws Exception {
-        if(args.length>2){
-            Operations op1 = new Operations(args[0],args[1],args[2]);
-            op1.getLabel();
-        }
-        else{
-            Operations op = new Operations(args[0], args[1]);
-            op.getLabel();
-        }
+        ArgumentSeparator argsSeparator = new ArgumentSeparator(args);
+        ReadFile readObj = new ReadFile(argsSeparator.getFile());
+        String data = readObj.readContent();
+        System.out.println(argsSeparator.getCountry()+"============"+argsSeparator.getAge());
+        Operations operation = new Operations(argsSeparator.getChoice(),data,argsSeparator.getCountry(),argsSeparator.getAge());
+        operation.getLabel();
     }
 }
