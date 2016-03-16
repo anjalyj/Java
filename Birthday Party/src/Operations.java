@@ -1,67 +1,58 @@
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
+import java.util.*;
+
+import scanner.Scanner;
+
+
+import person.Person;
+import validator.Validators;
+
 
 
 public class Operations {
-    private Integer age;
-    private String choice;
+    private final ArrayList<Validators> validators;
+    private Scanner choice;
     private String data;
-    private String country;
 
-//    public Operations(String choice, String data) {
-//        this.choice = choice;
-//        this.data = data;
-//    }
 
-    public Operations(String choice, String data,String country){
+    public Operations(Scanner choice, String data, ArrayList<Validators> validators) {
         this.choice = choice;
         this.data = data;
-        this.country = country;
-    }
-
-    public Operations(String choice, String data,String country,Integer age) {
-        this.choice = choice;
-        this.data = data;
-        this.country = country;
-        this.age = age;
+        this.validators = validators;
     }
 
     public String getLabel() throws Exception{
-        String result,output="";
         ProcessData dataObj = new ProcessData(data);
-        ArrayList processedData = dataObj.getProcessedData();
-        Iterator iterator = processedData.iterator();
-        while (iterator.hasNext()) {
-            result = checkFlag(iterator.next(), choice);
-            if(!result.equals("")){
+        ArrayList<Person> processedData = dataObj.getProcessedData();
+        if(validators.size()==0)
+            return getLabelWithoutValidators(processedData);
+        return getLabelWithValidators(processedData);
+    }
+
+    private String getLabelWithoutValidators(ArrayList<Person> processedData) {
+        String result ="",output="";
+        for(Person person : processedData){
+            result = choice.scan(person);
+            if(result.charAt(result.length() - 1)!=' '){
                 System.out.println(result);
-                output += result+"\n";
+                output += result;
             }
         }
         return output;
     }
 
-    public String checkFlag(Object content, String choice) {
-        String ans="";
-        LabelOperator op = new LabelOperator((Person) content);
-        HashMap<String,String> choices = new HashMap<>();
-        choices.put("-firstLast",op.getFirstNameFirst());
-        choices.put("-lastFirst",op.getFirstNameLast());
-        choices.put("-firstLastWithCountry",op.getFirstNameFirstWithCountry());
-        choices.put("-lastFirstWithCountry",op.getFirstNameLastWithCountry());
-        choices.put("-firstLastWithSpecificCountry",op.getFirstNameFirstWithSpecificCountry(country));
-        choices.put("-lastFirstWithSpecificCountry",op.getFirstNameLastWithSpecificCountry(country));
-        choices.put("-firstLastLegal",op.getFirsttNameFirstIfLegal(age,country));
-        choices.put("-lastFirstLegal",op.getFirstNameLastIfLegal(age,country));
-        for (Map.Entry me : choices.entrySet()) {
-            if(me.getKey().equals(choice))
-                ans = choices.get(me.getKey());
+    private String getLabelWithValidators(ArrayList<Person> processedData) {
+        String result = "",output="",sample="";
+        for(Validators validator : validators)  {
+            for(Person person : processedData){
+                result =choice.scan(person)+", "+validator.getValidData(person);
+                if(result.charAt(result.length() - 1)!=' '){
+                    System.out.println(result);
+                    output += result+"\n";
+                }
+            }
         }
-        return ans;
+        return output;
     }
-
 }
 
 

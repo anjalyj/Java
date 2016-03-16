@@ -1,5 +1,6 @@
+package person;
 
-enum Gender {
+public enum Gender {
     Male,
     Female;
 

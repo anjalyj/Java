@@ -1,4 +1,8 @@
 import org.junit.Test;
+import person.Address;
+import person.Gender;
+import person.Name;
+import person.Person;
 
 import static org.junit.Assert.assertEquals;
 

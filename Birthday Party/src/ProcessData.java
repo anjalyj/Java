@@ -1,3 +1,8 @@
+import person.Name;
+import person.Person;
+import person.Address;
+import person.Gender;
+
 import java.util.ArrayList;
 
 public class ProcessData {

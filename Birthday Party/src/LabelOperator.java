@@ -1,3 +1,4 @@
+import person.Person;
 
 public class LabelOperator {
     final Person person;
@@ -40,5 +41,11 @@ public class LabelOperator {
         return (person.getAge() >=age && person.getCountry().equals(country))
                 ?  getFirstNameLastWithSpecificCountry(country) + ", " + person.getAge()
                 : "";
+    }
+
+    public String getFormattedTextInFirstlast() {
+        FormatText format= new FormatText(person);
+        String nameToFormat = getFirstNameFirst();
+        return format.getFirstLastFormat(nameToFormat);
     }
 }

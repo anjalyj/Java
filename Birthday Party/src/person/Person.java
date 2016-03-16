@@ -1,3 +1,5 @@
+package person;
+
 public class Person {
     Gender gender;
     final int age;

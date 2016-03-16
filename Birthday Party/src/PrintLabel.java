@@ -3,8 +3,7 @@ public class PrintLabel {
         ArgumentSeparator argsSeparator = new ArgumentSeparator(args);
         ReadFile readObj = new ReadFile(argsSeparator.getFile());
         String data = readObj.readContent();
-        System.out.println(argsSeparator.getCountry()+"============"+argsSeparator.getAge());
-        Operations operation = new Operations(argsSeparator.getChoice(),data,argsSeparator.getCountry(),argsSeparator.getAge());
+        Operations operation = new Operations(argsSeparator.getChoice(),data,argsSeparator.getValidators());
         operation.getLabel();
     }
 }
